@@ -1,0 +1,58 @@
+#define LS 2   // left sensor
+#define RS 3   // right sensor
+#define LM1 4  // left motor forward
+#define LM2 5  // left motor backward
+#define RM1 6  // right motor forward
+#define RM2 7  // right motor backward
+
+void setup() {
+  pinMode(LS, INPUT);
+  pinMode(RS, INPUT);
+  pinMode(LM1, OUTPUT);
+  pinMode(LM2, OUTPUT);
+  pinMode(RM1, OUTPUT);
+  pinMode(RM2, OUTPUT);
+}
+
+void loop() {
+  int left = digitalRead(LS);
+  int right = digitalRead(RS);
+
+  if (left == 0 && right == 0) {
+    forward();   // move forward
+  } else if (left == 1 && right == 0) {
+    turnRight(); // turn right
+  } else if (left == 0 && right == 1) {
+    turnLeft();  // turn left
+  } else {
+    stopBot();   // stop if off track
+  }
+}
+
+void forward() {
+  digitalWrite(LM1, HIGH);
+  digitalWrite(LM2, LOW);
+  digitalWrite(RM1, HIGH);
+  digitalWrite(RM2, LOW);
+}
+
+void turnRight() {
+  digitalWrite(LM1, LOW);
+  digitalWrite(LM2, LOW);
+  digitalWrite(RM1, HIGH);
+  digitalWrite(RM2, LOW);
+}
+
+void turnLeft() {
+  digitalWrite(LM1, HIGH);
+  digitalWrite(LM2, LOW);
+  digitalWrite(RM1, LOW);
+  digitalWrite(RM2, LOW);
+}
+
+void stopBot() {
+  digitalWrite(LM1, LOW);
+  digitalWrite(LM2, LOW);
+  digitalWrite(RM1, LOW);
+  digitalWrite(RM2, LOW);
+}

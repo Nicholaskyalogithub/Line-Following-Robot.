@@ -1,0 +1,27 @@
+# Project Report: Line Following Robot
+
+## Objective
+To build a simple robot that can automatically follow a black line on a white surface using Arduino.
+
+## Components
+- Arduino Uno
+- L298N Motor Driver
+- 2 DC Motors + Wheels
+- 2 IR Sensors
+- Robot Chassis
+- Battery Pack
+
+## How It Works
+- The IR sensors detect the contrast between black (line) and white (background).
+- The Arduino processes the sensor signals and decides which motors to drive.
+- If the left sensor detects black → robot turns left.
+- If the right sensor detects black → robot turns right.
+- If both sensors detect black → robot moves straight.
+
+## Outcome
+The robot successfully followed a black line drawn on a white surface, demonstrating basic robotics and automation concepts.
+
+## Applications
+- Automated warehouse robots
+- Autonomous delivery systems
+- Learning base for self-driving cars
